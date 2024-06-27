@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql-serv:
+    image: mysql:latest
+    container_name: mysql-serv
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 3307:3306  
+
+  springboot-docker-container:
+    image: projet-angular
+    container_name: springboot-docker-container
+    ports:
+      - 8081:8081
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-serv:3306/${MYSQL_DATABASE}?createDatabaseIfNotExist=true&characterEncoding=UTF-8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: ${MYSQL_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - mysql-serv
+   

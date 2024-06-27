@@ -1,0 +1,25 @@
+# Default values for my-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+
+mysql:
+  databaseName:docker-db
+
+springApp:
+  image:
+    repository: projet-angular
+    pullPolicy: IfNotPresent
+    tag: latest
+
+
+mysqlVolume:
+  persistentVolumeClaim:
+    storageSize: 1000Mi  #1Gi
+
+  persistentVolume:
+    storageSize: 1000Mi  #1Gi
+    pathOnHost: "C:\\ProgramData\\Docker\\volumes\\sqldata"
+
+
+  mountPath: /var/lib/mysql
