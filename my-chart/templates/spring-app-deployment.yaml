@@ -20,7 +20,7 @@ spec:  # Spécifie la configuration souhaitée pour le déploiement.
             - containerPort: 8084
           env:
             - name: SPRING_DATASOURCE_URL
-              value: "jdbc:mysql://mysql-serv:3306/docker-db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC"
+              value: "jdbc:mysql:///mysql-service:3306/docker-db?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC"
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
