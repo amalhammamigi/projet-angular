@@ -22,4 +22,4 @@ mysqlVolume:
     pathOnHost: "C:\\ProgramData\\Docker\\volumes\\sqldata"
 
 
-  mountPath: /var/li
+ mountPath: /var/lib/mysql
