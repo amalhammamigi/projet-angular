@@ -14,7 +14,7 @@ spec:  # Spécifie la configuration souhaitée pour le déploiement.
     spec:
       containers:
         - name: springboot-docker-container
-          image: projet-angular:latest
+          image: amal300/projet-angular:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8082
